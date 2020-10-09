@@ -47,6 +47,17 @@ Route::post('user/update', 'UserController@user_update')->name('user.update');
 //ユーザー一覧画面
 Route::get('/user', 'UserController@user')->name('user');
 
+
+//メッセージ機能
+Route::get('/timeline', 'Auth\TimelineController@showTimelinePage'); 
+Route::post('/timeline', 'Auth\TimelineController@postTweet');
+
+
+
+
+
+
+
 //sample(vue.jsのテスト用)
 Route::get('/sample', function () {
     return view('sample');
