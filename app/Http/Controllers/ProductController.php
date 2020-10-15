@@ -24,7 +24,6 @@ class ProductController extends Controller
     {    
         $product = new Product;
         $list = $product->get_product();
-
         return view('index', [
                 'list'  => $list
         ]);

@@ -1,8 +1,6 @@
 @extends('layouts.app') 
 @section('content')
-
-
-<div class="wrapper" style="margin: 0 auto; width: 50%; height: 100%; background-color: white;">
+<div class="wrapper" style="margin: 0 auto; width: 100%; height: 100%; background-color: white;">
     <form action="/timeline" method="post">
     {{ csrf_field() }}
         <div style="background-color: #E8F4FA; text-align: center;">
@@ -17,7 +15,7 @@
     <div class="tweet-wrapper"> <!-- この辺追加 -->
         @foreach($tweets as $tweet)
         <div style="padding:2rem; border-top: solid 1px #E6ECF0; border-bottom: solid 1px #E6ECF0;">
-            <div>{{ $tweet->tweet }}</div>
+            <div>{{$tweet->tweet }}</div>
         </div>
         @endforeach
     </div>

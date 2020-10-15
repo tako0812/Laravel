@@ -9,11 +9,17 @@ use \App\Tweet;
 
 class TimelineController extends Controller
 {
-    public function showTimelinePage()
-    {
-       
-        $tweets = Tweet::latest()->get();  // <--- 追加
-        return view('auth.timeline', compact('tweets'));   // <--- 変更
+    public function __construct(){
+        $this->middleware('auth');
+      }
+    public function showTimelinePage($id)
+    {       
+        $tweets = new Tweet;
+        $auth_id=Auth::user()->id;
+        $tweets = $tweets->get_tweet_by_id($id,$auth_id);
+        return view('auth.timeline', [
+            'tweets' => $tweets,
+        ]);   // <--- 変更
     }
 
     public function postTweet(Request $request) //ここはあとで実装します。(Requestはpostリクエストを取得するためのものです。)
