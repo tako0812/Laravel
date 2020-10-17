@@ -49,9 +49,9 @@ Route::get('/user', 'UserController@user')->name('user');
 
 
 //メッセージ機能
-Route::get('/timeline/{id}', 'Auth\TimelineController@showTimelinePage'); 
+Route::get('/timeline/{id}', 'Auth\TimelineController@showTimelinePage')->name('tweet.get'); 
 
-Route::post('/timeline/{id}', 'Auth\TimelineController@postTweet');
+Route::post('/timeline/{id}', 'Auth\TimelineController@postTweet')->name('tweet.post');
 
 
 

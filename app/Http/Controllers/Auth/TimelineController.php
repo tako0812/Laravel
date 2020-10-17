@@ -19,18 +19,18 @@ class TimelineController extends Controller
         $tweets = $tweets->get_tweet_by_id($id,$auth_id);
         return view('auth.timeline', [
             'tweets' => $tweets,
-        ]);   // <--- 変更
+            'id'=>$id,
+        ]); 
     }
 
-    public function postTweet(Request $request) //ここはあとで実装します。(Requestはpostリクエストを取得するためのものです。)
-    {
-
-        
+    public function postTweet(Request $request,$id) //ここはあとで実装します。(Requestはpostリクエストを取得するためのものです。)
+    {      
         $validator = $request->validate([ // これだけでバリデーションできるLaravelすごい！
             'tweet' => ['required', 'string', 'max:280'], // 必須・文字であること・280文字まで（ツイッターに合わせた）というバリデーションをします（ビューでも軽く説明します。）
         ]);
         Tweet::create([ // tweetテーブルに入れるよーっていう合図
-            'user_id' => Auth::user()->id, // Auth::user()は、現在ログインしている人（つまりツイートしたユーザー）
+            'send' => Auth::user()->id, // Auth::user()は、現在ログインしている人（つまりツイートしたユーザー）
+            'recieve'=>$id,
             'tweet' => $request->tweet, // ツイート内容
         ]);
         return back(); // リクエスト送ったページに戻る（つまり、/timelineにリダイレクトする）
