@@ -60,15 +60,24 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                                    <a class="dropdown-item" href="{{ route('product.create') }}"
+                                    <a class="dropdown-item" href="{{ route('user.mypage') }}"
                                     >
-                                     {{ __('商品登録') }}
+                                     {{ __('プロフィール') }}
+                                 </a>
+                                    <a class="dropdown-item" href="{{ route('tweetLIST') }}"
+                                    >
+                                     {{ __('メッセージ') }}
                                  </a>
                                  <a class="dropdown-item" href="{{ route('user.mypage') }}"
                                  >
-                                  {{ __('ユーザー情報') }}
+                                  {{ __('メンター') }}
                               </a>
+                              <a class="dropdown-item" href="{{ route('user.mypage') }}"
+                              >
+                               {{ __('お支払い管理') }}
+                           </a>
+                              
+
                                  <a class="dropdown-item" href="{{ route('logout') }}"
                                  onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">

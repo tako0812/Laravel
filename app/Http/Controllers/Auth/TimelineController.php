@@ -22,6 +22,15 @@ class TimelineController extends Controller
             'id'=>$id,
         ]); 
     }
+    public function showTimelineList(){
+        $tweets = new Tweet;
+        $auth_id=Auth::user()->id;
+        $tweets = $tweets->get_tweetLIST_by_id($auth_id);
+        return view('auth.timelineLIST', [
+            'tweets' => $tweets,
+        ]); 
+
+    }
 
     public function postTweet(Request $request,$id) //ここはあとで実装します。(Requestはpostリクエストを取得するためのものです。)
     {      

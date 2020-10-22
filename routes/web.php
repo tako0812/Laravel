@@ -53,8 +53,8 @@ Route::get('/timeline/{id}', 'Auth\TimelineController@showTimelinePage')->name('
 
 Route::post('/timeline/{id}', 'Auth\TimelineController@postTweet')->name('tweet.post');
 
-
-
+//メッセージ一覧
+Route::get('/timelineLIST', 'Auth\TimelineController@showTimelineList')->name('tweetLIST'); 
 
 
 

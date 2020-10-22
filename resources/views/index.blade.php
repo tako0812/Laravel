@@ -1,7 +1,5 @@
 @extends('layouts.app') @section('content')
 <div class="container">
-    <td><a href="{{ route('product.create') }}">新規作成</a></td>
-    <td><a href="{{ route('login') }}">ログイン</a></td>
     @foreach ($list as $item)
     <div class="row justify-content-center">
         <div class="card col-md-6 m-2">
