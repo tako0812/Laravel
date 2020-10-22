@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class TimelineController extends Controller
         $tweets = new Tweet;
         $auth_id=Auth::user()->id;
         $tweets = $tweets->get_tweet_by_id($id,$auth_id);
-        return view('auth.timeline', [
+        return view('timeline', [
             'tweets' => $tweets,
             'id'=>$id,
         ]); 
@@ -26,7 +26,7 @@ class TimelineController extends Controller
         $tweets = new Tweet;
         $auth_id=Auth::user()->id;
         $tweets = $tweets->get_tweetLIST_by_id($auth_id);
-        return view('auth.timelineLIST', [
+        return view('timelineLIST', [
             'tweets' => $tweets,
         ]); 
 

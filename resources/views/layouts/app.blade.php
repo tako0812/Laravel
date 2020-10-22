@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -12,17 +11,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://js.stripe.com/v3/"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-
-
 </head>
 <body>
     <div id="app">
@@ -60,24 +55,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('user.mypage') }}"
+
+                                    <a class="dropdown-item" href="{{ route('product.create') }}"
                                     >
-                                     {{ __('プロフィール') }}
-                                 </a>
-                                    <a class="dropdown-item" href="{{ route('tweetLIST') }}"
-                                    >
-                                     {{ __('メッセージ') }}
+                                     {{ __('商品登録') }}
                                  </a>
                                  <a class="dropdown-item" href="{{ route('user.mypage') }}"
                                  >
-                                  {{ __('メンター') }}
+                                  {{ __('ユーザー情報') }}
                               </a>
-                              <a class="dropdown-item" href="{{ route('user.mypage') }}"
-                              >
-                               {{ __('お支払い管理') }}
-                           </a>
-                              
-
                                  <a class="dropdown-item" href="{{ route('logout') }}"
                                  onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">
@@ -98,7 +84,6 @@
         </nav>
 
         <main class="py-4">
-            
             @yield('content')
         </main>
     </div>

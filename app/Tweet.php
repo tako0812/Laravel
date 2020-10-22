@@ -29,14 +29,8 @@ class Tweet extends Model
         $tweet =  $this->where(function($tweet) use ($auth_id) {
             $tweet->orWhere('send', '=', $auth_id)
                   ->orWhere('recieve', '=', $auth_id);
-        })->get();
- 
-        // $send = $tweet->unique('send');
-        
-        // $recieve = $tweet->unique('recieve');
-
-        // $tweet=concat($send,$recieve);
-      
+        })->groupBy('send')->groupBy('recieve')->get();
+       
         return $tweet;
     }
 
