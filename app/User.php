@@ -62,6 +62,10 @@ class User extends Authenticatable
          return $this->hasMay('App\Procut');
     }
 
+    public function tweets(){
+        return $this->hasMay('App\Tweet');
+   }
+
     public function reviews()
     {
         return $this->hasMany('App\Review');
