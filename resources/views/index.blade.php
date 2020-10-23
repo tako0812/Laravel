@@ -1,5 +1,10 @@
 @extends('layouts.app') @section('content')
 <div class="container">
+    @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
     @foreach ($list as $item)
     <div class="row justify-content-center">
         <div class="card col-md-6 m-2">
@@ -24,6 +29,11 @@
                 <p class="card-text">{{ $item->price}}円</p>
                 <a href="{{ route('product.detail',['id'=>$item->id]) }}" class="btn btn-primary">詳細をみる</a>
 
+                @if ($item->is_purchased)
+                    <div>
+                        <a href="{{ route('review.create', ['product'=>$item->id]) }}">この商品のレビューを書く</a>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

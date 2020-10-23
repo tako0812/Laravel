@@ -60,6 +60,10 @@ Route::middleware(['auth'])->group(function () {
 
     //メッセージ一覧
     Route::get('/timelineLIST', 'TimelineController@showTimelineList')->name('tweetLIST');
+
+    // レビュー投稿
+    Route::get('/review/{product}', 'ReviewController@create')->name('review.create');
+    Route::post('/review/store', 'ReviewController@store')->name('review.store');
 });
 
 
