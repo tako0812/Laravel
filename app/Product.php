@@ -8,7 +8,7 @@ class Product extends Model
 {
     //
     protected $table = 'product';
-    
+
     protected $fillable = ['name', 'detail','title','price'];
     // 追加：ミューテタ
     // public function setNameAttribute($value)
@@ -25,21 +25,39 @@ class Product extends Model
     {
         return date('Y-m-d',  strtotime($value));
     }
-    
+
     public function get_product()
     {
         // $ret = $this->where('user_id', $id)->get();
         $ret=$this->latest()->get();
         return $ret;
     }
+
     public function get_product_by_id($id)
-    {   
+    {
         return $this->where('id', $id)->first();
         // return Product::find($id);
 
     }
+
     public function user()
     {
         return $this->belongsTo('App\User');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany('App\Purchase');
+    }
+
+    public function getIsPurchasedAttribute()
+    {
+        return $this->purchases()->where('user_id', auth()->id())->count() ? TRUE : FALSE;
+    }
+
 }

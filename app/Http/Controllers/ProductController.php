@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    
+
 
     public function edit($id)
     {
@@ -21,9 +21,10 @@ class ProductController extends Controller
         ]);
     }
     public function index ()
-    {    
+    {
         $product = new Product;
         $list = $product->get_product();
+
         return view('index', [
                 'list'  => $list
         ]);
