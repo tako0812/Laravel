@@ -61,6 +61,9 @@ class User extends Authenticatable
     public function Product(){
          return $this->hasMay('App\Procut');
     }
+    public function tweets(){
+        return $this->hasMay('App\Tweet');
+   }
     public function get_user(){
 
         $ret=$this->get();
