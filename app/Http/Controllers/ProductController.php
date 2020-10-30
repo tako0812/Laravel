@@ -16,7 +16,7 @@ class ProductController extends Controller
         $product = new Product;
         $product_data = $product->get_product_by_id($id);
 
-        return view('edit', [
+        return view('product.edit', [
             'product' => $product_data,
         ]);
     }
@@ -25,7 +25,7 @@ class ProductController extends Controller
         $product = new Product;
         $list = $product->get_product();
 
-        return view('index', [
+        return view('product.index', [
                 'list'  => $list
         ]);
     }
@@ -36,7 +36,7 @@ class ProductController extends Controller
         $products = new Product;
         $product_data = $products->get_product_by_id($id);
         $user = Product::first()->user;
-         return view('detail', [
+         return view('product.detail', [
             'product' => $product_data,
             'user'=>$user,
 
@@ -47,7 +47,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('create');
+        return view('product.create');
     }
     public function store(Request $request)
     {

@@ -17,7 +17,7 @@ class TimelineController extends Controller
         $tweets = new Tweet;
         $auth_id=Auth::user()->id;
         $tweets = $tweets->get_tweet_by_id($id,$auth_id);
-        return view('timeline', [
+        return view('message.timeline', [
             'tweets' => $tweets,
             'id'=>$id,
         ]); 
@@ -26,7 +26,7 @@ class TimelineController extends Controller
         $tweets = new Tweet;
         $auth_id=Auth::user()->id;
         $tweets = $tweets->get_tweetLIST_by_id($auth_id);
-        return view('timelineLIST', [
+        return view('message.timelineLIST', [
             'tweets' => $tweets,
         ]); 
 

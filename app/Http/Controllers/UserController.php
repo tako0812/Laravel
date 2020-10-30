@@ -15,7 +15,7 @@ class UserController extends Controller
         $user=new User;
         $user= $user->get_user();
 
-        return view('home', [
+        return view('user.home', [
             'list'  => $user
     ]);
 
@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         $user = new User;
         $user = $user->get_user_by_id(Auth::id());
-        return view('mypage', [
+        return view('user.mypage', [
                 'user'  => $user
         ]);
     }
@@ -37,7 +37,7 @@ class UserController extends Controller
         $product = new Product;
         $product = $product->get_product_by_id(Auth::id());
 
-        return view('user_post', [
+        return view('user.user_post', [
             'user'  => $user,
             'products'=>$product
     ]);
@@ -45,7 +45,7 @@ class UserController extends Controller
     public function user_config(){
         $user = new User;
         $user = $user->get_user_by_id(Auth::id());
-        return view('userconfig',[
+        return view('user.userconfig',[
         'user'=>$user
         ]);
 
@@ -62,6 +62,13 @@ class UserController extends Controller
         }
         $user->save();
         return redirect(route('user.mypage'));
+    }
+    public function user_id($id){
+        $user =new User;
+        $user = $user->get_user_by_id($id);
+        return view('user.user_id',[
+            'user'=>$user
+            ]);
     }
 
 }

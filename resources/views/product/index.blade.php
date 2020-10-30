@@ -13,9 +13,9 @@
                 </br>
                 <a class="card-text" href="{{ route('product.detail',['id'=>$item->id]) }}">{{ $item->sub_title }}</a>
 
-                @if(isset($item->image_path)!=null)
+                @if($item->image_path!=null)
                 <a href="{{ route('product.detail',['id'=>$item->id]) }}">
-                    <img class="card-img-top rounded" src="/storage/product_img/{{isset($item->image_path)}}"
+                    <img class="card-img-top rounded" src="/storage/product_img/{{$item->image_path}}"
                         alt="Card image cap" />
                 </a>
                 @endif
@@ -23,9 +23,16 @@
                 <p class="card-text">
                     @if(isset($item->user->image_path)!=null)
                     <img class="w-25 h-25 card-img-top rounded-circle"
-                        src="/storage/user_img/{{isset($item->user->image_path)}}" alt="Card image cap" />
+                        src="/storage/user_img/{{$item->user->image_path}}" alt="Card image cap" />
                     @endif
-                    {{isset($item->user->name)}}</p>
+                </p>
+
+
+                {{--  //ユーザーの名前があれば表示する  --}}
+                @if(isset($item->user->name))
+                    <p>{{$item->user->name}}</p>
+                @endif    
+
                 <p class="card-text">{{ $item->price}}円</p>
                 <a href="{{ route('product.detail',['id'=>$item->id]) }}" class="btn btn-primary">詳細をみる</a>
 

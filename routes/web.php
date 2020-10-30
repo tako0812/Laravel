@@ -48,16 +48,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user_buy/', 'UserController@user_buy')->name('user.buy');
     // ユーザー情報更新
     Route::post('user/update', 'UserController@user_update')->name('user.update');
-
     //ユーザー一覧画面
     Route::get('/user', 'UserController@user')->name('user');
+    //個別ユーザーの情報
+    Route::get('/user/{id}', 'UserController@user_id')->name('user_id');
 
 
     //メッセージ機能
     Route::get('/timeline/{id}', 'TimelineController@showTimelinePage')->name('tweet.get');
-
     Route::post('/timeline/{id}', 'TimelineController@postTweet')->name('tweet.post');
-
     //メッセージ一覧
     Route::get('/timelineLIST', 'TimelineController@showTimelineList')->name('tweetLIST');
 
