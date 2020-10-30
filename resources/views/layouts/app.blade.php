@@ -62,8 +62,13 @@
                                  </a>
                                  <a class="dropdown-item" href="{{ route('user.mypage') }}"
                                  >
-                                  {{ __('ユーザー情報') }}
+                                  {{ __('プロフィール') }}
                               </a>
+                              <a class="dropdown-item" href="{{ route('tweetLIST') }}"
+                              >
+                               {{ __('メッセージ') }}
+                           </a>
+
                                  <a class="dropdown-item" href="{{ route('logout') }}"
                                  onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">

@@ -11,7 +11,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'title' => $faker->realText(10),
         'sub_title'=>$faker->realText(10),
         'price' => $faker->numberBetween(0,20000),
-        'user_id'=>1,
+        'user_id'=>$faker->unique()->numberBetween(0,50),
         'image_path'=>$faker->imageUrl,
     
     ];
